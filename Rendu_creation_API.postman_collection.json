@@ -1,0 +1,342 @@
+{
+	"info": {
+		"_postman_id": "6a3eb551-88c8-49fd-ab96-d1c4a2df8587",
+		"name": "Rendu_creation_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24533668"
+	},
+	"item": [
+		{
+			"name": "GET tout les users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzI1ODQsImV4cCI6MTcyMTEzNjE4NCwicm9sZXMiOlsiUk9MRV9QQVRST04iXSwidXNlcm5hbWUiOiJ0aGVhIn0.V_Vkf-TXpR5tUJa4T8oraz8XzeGmJ4RnTSfONe3JF0SuW9Bur7TWp4TT-EBgYIiDUSiDdCzIvFlVwJTBcdFtKGLpbBETG0WWZOCe1skv5HPgWj95KDP1KJIgl6s1SlGTbXBFEo-cRUgogv9tEboBXpowugrj7JXenX4i3SFoB78LqDwIS2F01Kgvn3M4z5CEYF5NU09RUJ9JPMRW3mKj8uE_Y2DjEJ8pnKdqU6uqX6HfzF7ZfFSjqn6QtCocO3MOHS5bRbsiVvleMd7rJpr_b91jca1_BYHggrjq6rcmNOnvE32WQ29wXHQSSz5zAlU2TDD1zMGfjSjPb-t2udjWwQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzI1ODQsImV4cCI6MTcyMTEzNjE4NCwicm9sZXMiOlsiUk9MRV9QQVRST04iXSwidXNlcm5hbWUiOiJ0aGVhIn0.V_Vkf-TXpR5tUJa4T8oraz8XzeGmJ4RnTSfONe3JF0SuW9Bur7TWp4TT-EBgYIiDUSiDdCzIvFlVwJTBcdFtKGLpbBETG0WWZOCe1skv5HPgWj95KDP1KJIgl6s1SlGTbXBFEo-cRUgogv9tEboBXpowugrj7JXenX4i3SFoB78LqDwIS2F01Kgvn3M4z5CEYF5NU09RUJ9JPMRW3mKj8uE_Y2DjEJ8pnKdqU6uqX6HfzF7ZfFSjqn6QtCocO3MOHS5bRbsiVvleMd7rJpr_b91jca1_BYHggrjq6rcmNOnvE32WQ29wXHQSSz5zAlU2TDD1zMGfjSjPb-t2udjWwQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/3",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\":\"thea\",\r\n    \"plainPassword\":\"thea\",\r\n    \"role\":\"ROLE_PATRON\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\":\"thea\",\r\n    \"password\":\"thea\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/auth",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzI1ODQsImV4cCI6MTcyMTEzNjE4NCwicm9sZXMiOlsiUk9MRV9QQVRST04iXSwidXNlcm5hbWUiOiJ0aGVhIn0.V_Vkf-TXpR5tUJa4T8oraz8XzeGmJ4RnTSfONe3JF0SuW9Bur7TWp4TT-EBgYIiDUSiDdCzIvFlVwJTBcdFtKGLpbBETG0WWZOCe1skv5HPgWj95KDP1KJIgl6s1SlGTbXBFEo-cRUgogv9tEboBXpowugrj7JXenX4i3SFoB78LqDwIS2F01Kgvn3M4z5CEYF5NU09RUJ9JPMRW3mKj8uE_Y2DjEJ8pnKdqU6uqX6HfzF7ZfFSjqn6QtCocO3MOHS5bRbsiVvleMd7rJpr_b91jca1_BYHggrjq6rcmNOnvE32WQ29wXHQSSz5zAlU2TDD1zMGfjSjPb-t2udjWwQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\":\"thibaut\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzI1ODQsImV4cCI6MTcyMTEzNjE4NCwicm9sZXMiOlsiUk9MRV9QQVRST04iXSwidXNlcm5hbWUiOiJ0aGVhIn0.V_Vkf-TXpR5tUJa4T8oraz8XzeGmJ4RnTSfONe3JF0SuW9Bur7TWp4TT-EBgYIiDUSiDdCzIvFlVwJTBcdFtKGLpbBETG0WWZOCe1skv5HPgWj95KDP1KJIgl6s1SlGTbXBFEo-cRUgogv9tEboBXpowugrj7JXenX4i3SFoB78LqDwIS2F01Kgvn3M4z5CEYF5NU09RUJ9JPMRW3mKj8uE_Y2DjEJ8pnKdqU6uqX6HfzF7ZfFSjqn6QtCocO3MOHS5bRbsiVvleMd7rJpr_b91jca1_BYHggrjq6rcmNOnvE32WQ29wXHQSSz5zAlU2TDD1zMGfjSjPb-t2udjWwQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET boisson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/boissons/2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"boissons",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET toutes les boissons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/boissons",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"boissons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST boissons",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"champagne\",\r\n    \"price\":35\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/boissons",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"boissons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE boissons",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/boissons/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"boissons",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH boissons",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/merge-patch+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"limonade\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/boissons/2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"boissons",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "https://127.0.0.1:8001/api"
+		}
+	]
+}
