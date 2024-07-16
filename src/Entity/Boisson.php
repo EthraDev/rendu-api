@@ -37,6 +37,17 @@ class Boisson
     #[Groups(['read', 'write'])]
     private ?Media $photo = null;
 
+    /**
+     * @var Collection<int, Commande>
+     */
+    #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'listesBoissons')]
+    private Collection $commandes;
+
+    public function __construct()
+    {
+        $this->commandes = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
