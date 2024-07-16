@@ -24,7 +24,7 @@ use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
         new Get(security: "is_granted('ROLE_SERVEUR') or is_granted('ROLE_PATRON') or is_granted('ROLE_BARMAN')"),
         new Post(security: "is_granted('ROLE_SERVEUR') or is_granted('ROLE_BARMAN') or is_granted('ROLE_PATRON')"),
         new Patch(security: "is_granted('ROLE_SERVEUR') and object.getStatus() != 'payée'"),
-        new Delete(security: "is_granted('ROLE_ADMIN')"),
+        new Delete(security: "is_granted('ROLE_PATRON')"),
     ],
     normalizationContext: ['groups' => ['read']],
     denormalizationContext: ['groups' => ['write']],
