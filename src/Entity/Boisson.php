@@ -3,9 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\BoissonRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Get;
+use Symfony\Component\Serializer\Attribute\Groups;
+use ApiPlatform\Metadata\ApiFilter;
 
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Post;
@@ -34,12 +38,18 @@ use Symfony\Component\Serializer\Attribute\Groups;
 // #[Delete(security: "is_granted('ROLE_ADMIN')")]
 // #[Post(security: "is_granted('ROLE_ADMIN')")]
 #[ORM\Entity(repositoryClass: BoissonRepository::class)]
+#[ApiResource(
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']],
+    forceEager: false,
+)]
 class Boisson
 {
     #[Groups('read')]
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups('read')]
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
@@ -103,33 +113,6 @@ class Boisson
     public function setPhoto(?Media $photo): static
     {
         $this->photo = $photo;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Commande>
-     */
-    public function getCommandes(): Collection
-    {
-        return $this->commandes;
-    }
-
-    public function addCommande(Commande $commande): static
-    {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes->add($commande);
-            $commande->addListesBoisson($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommande(Commande $commande): static
-    {
-        if ($this->commandes->removeElement($commande)) {
-            $commande->removeListesBoisson($this);
-        }
 
         return $this;
     }
