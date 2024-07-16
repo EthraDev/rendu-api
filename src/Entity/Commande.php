@@ -8,6 +8,31 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\GetCollection;
+
+#[ApiResource(
+    // operations: [
+    //     new GetCollection(),
+    //     new Get(),
+    //     new Post()
+    // ]
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']],
+    forceEager: false,
+)]
+#[Get()]
+#[GetCollection()]
+#[Patch()]
+#[Delete()]
+#[Post()]
+// #[Patch(security: "is_granted('ROLE_ADMIN')")]
+// #[Delete(security: "is_granted('ROLE_ADMIN')")]
+// #[Post(security: "is_granted('ROLE_ADMIN')")]
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
 class Commande
 {
