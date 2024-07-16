@@ -20,9 +20,12 @@
         "symfony/runtime": "7.1.*",
         "symfony/yaml": "7.1.*"
     },
+<<<<<<< HEAD
     "require-dev": {
         "symfony/maker-bundle": "^1.60"
     },
+=======
+>>>>>>> 7f447af198821fae93568d1ae4760906b82dabc0
     "config": {
         "allow-plugins": {
             "php-http/discovery": true,
@@ -71,5 +74,8 @@
             "allow-contrib": false,
             "require": "7.1.*"
         }
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1.60"
     }
 }
