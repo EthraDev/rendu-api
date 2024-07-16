@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "78a89cf4-850f-4f6b-8bb1-97d69d2c58eb",
+		"name": "Rendu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29324483"
+	},
+	"item": [
+		{
+			"name": "Liste des médias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/medias",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"medias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste des users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzYxMTUsImV4cCI6MTcyMTEzOTcxNSwicm9sZXMiOlsiUk9MRV9QQVRST04iXSwidXNlcm5hbWUiOiJ0aGVhIn0.jExYc9QJtNejQIjln2-heKXFR5oOYWsOHDAop2jmE7znj868gMpua4oF6hcR791ScGmPfeDthVvWTgvHwzYkBdjqztBAE8Kimv654a-4c6MlOSTueb4B1UO2Cenu25L24BpMp-tHAvDH1QsKyEbcSHvGEbdS_MguwPXXoQPWJf5KaHhJO4PFjFlG6izm1yGZmCFYhzvP8IEl24VkDbhgEq7Y8P9xjfq1BWdN0gZWenscX-RuHhFyR1Hd4T20PeyszYA7PhaSj2mL3IpC4xtz8cWfR01SaJJ123rv9mzPXy2Vm-ReeUaJgPvGkrMHLpci_P4uQha69ShWnlfE7VkfBA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/users",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste des commandes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzY5OTIsImV4cCI6MTcyMTE0MDU5Miwicm9sZXMiOlsiUk9MRV9QQVRST04iXSwidXNlcm5hbWUiOiJ0aGVhIn0.Old_xDn_YwUQGCvjgeXWCEIWtJdVNdgQUrMRzcgLw53yVcfhRb3obQMPLaO0H9ia-u-XGKbqntiSWefMcVgWf7vJDxusBJgy5cvaPLZxMiy-1C3uFwVCMJlN-e3aZhQLyP24WEtY9Jd9kIH8hNyg672zLuTabD0mx3lhXH7vQDs_WLCWf7LY0RH0a452iSKfSaZWI-5syLF6RXFxdvLwEYGxFuYMQYuLbuuGJPj_M7IYU_QbXaSy9IyqjiukgYNMdLy1sTkPQMeF2e23BHfUvsh3ECWIQyCPSYq9Ju4gYoW6DR57omASYk4w0b5sVDH6xao_v5a6Er_pYehbYmRa2w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/commandes",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"commandes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste des commandes non payées",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzgzOTAsImV4cCI6MTcyMTE0MTk5MCwicm9sZXMiOlsiUk9MRV9QQVRST04iXSwidXNlcm5hbWUiOiJ0aGVhIn0.dMXqIde9y8LIcKhyWa9JX_S1wO9ipPoMJ1QojTto5K63Ah4n6XDfbFX3x7U97zeZRTDyF-N7q09BC6FEA7gpFGFGb-9ezUBg4Abdn96f97_djya0etdCsU4ahyyo8Mm2ObaCUUHMoc9UJW16vqlBGCsvHtLTfiDfRWFj706g7PskA7nShWfEllxrkqCn2y6lI-DLz9ec5nE0opTrp5AkhMsO0yTaGVDUf8BbQdRbjVhj3PDymDAcLhIlalR_iGGuy7K66EFYIJE9NG-sNHCALwa9azzcgIjVMgn2hODsN9_i709dFTPYKBEDiAMB0YnLfHJ8r-o2kYk2ojueCyVf9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/commandes?status=prête",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"commandes"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "prête"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste d'une commande",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzcyMzAsImV4cCI6MTcyMTE0MDgzMCwicm9sZXMiOlsiUk9MRV9TRVJWRVVSIl0sInVzZXJuYW1lIjoibnlhbmR5In0.ceOyTzAP5FQuukpdIWY17UMeDTEJZOGb8X8jKJz1Q-4u1QEU2P0FJlmy0X5gOQbr3UxktoDqoD4Zw6GgJ497xeOMZK0ecMe7QDpGysMU4J_I4_rXPHY-OuBvELdQLcAnmmMWoZKI_39u4fezcAebp2T0zbIFnnLuz2bNnLTeZpfNwWidvlTrrE_RmW3zQlqPuP-efR3h5YHP0EKGyphjRvNVbVVVY3OjHFcuZdKUdNY9Kr1Z2XXsEwUBS24SN7OCZBZ-IivwnXP8g3Lxdtbi_Y0j80wN3u82NpHb3XCDHSvJEJViHIm_tZyJx0BedxlsiMCDF821dHu_C3L_yW7aGg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/commandes/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"commandes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d'un media",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzY5OTIsImV4cCI6MTcyMTE0MDU5Miwicm9sZXMiOlsiUk9MRV9QQVRST04iXSwidXNlcm5hbWUiOiJ0aGVhIn0.Old_xDn_YwUQGCvjgeXWCEIWtJdVNdgQUrMRzcgLw53yVcfhRb3obQMPLaO0H9ia-u-XGKbqntiSWefMcVgWf7vJDxusBJgy5cvaPLZxMiy-1C3uFwVCMJlN-e3aZhQLyP24WEtY9Jd9kIH8hNyg672zLuTabD0mx3lhXH7vQDs_WLCWf7LY0RH0a452iSKfSaZWI-5syLF6RXFxdvLwEYGxFuYMQYuLbuuGJPj_M7IYU_QbXaSy9IyqjiukgYNMdLy1sTkPQMeF2e23BHfUvsh3ECWIQyCPSYq9Ju4gYoW6DR57omASYk4w0b5sVDH6xao_v5a6Er_pYehbYmRa2w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/theab/Pictures/Screenshots/Capture d'écran 2024-07-03 220700.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/medias",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"medias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d'un user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\": \"clement\",\r\n    \"plainPassword\": \"1\",\r\n    \"role\": \"ROLE_BARMAN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d'une boisson",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzYxMTUsImV4cCI6MTcyMTEzOTcxNSwicm9sZXMiOlsiUk9MRV9QQVRST04iXSwidXNlcm5hbWUiOiJ0aGVhIn0.jExYc9QJtNejQIjln2-heKXFR5oOYWsOHDAop2jmE7znj868gMpua4oF6hcR791ScGmPfeDthVvWTgvHwzYkBdjqztBAE8Kimv654a-4c6MlOSTueb4B1UO2Cenu25L24BpMp-tHAvDH1QsKyEbcSHvGEbdS_MguwPXXoQPWJf5KaHhJO4PFjFlG6izm1yGZmCFYhzvP8IEl24VkDbhgEq7Y8P9xjfq1BWdN0gZWenscX-RuHhFyR1Hd4T20PeyszYA7PhaSj2mL3IpC4xtz8cWfR01SaJJ123rv9mzPXy2Vm-ReeUaJgPvGkrMHLpci_P4uQha69ShWnlfE7VkfBA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"icetea\",\r\n  \"price\": 3,\r\n  \"photo\": {\r\n    \"filePath\": \"api/medias/1\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/boissons",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"boissons"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": "icetea",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\": \"thea\",\r\n    \"password\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/auth",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d'une commande",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzY5OTIsImV4cCI6MTcyMTE0MDU5Miwicm9sZXMiOlsiUk9MRV9QQVRST04iXSwidXNlcm5hbWUiOiJ0aGVhIn0.Old_xDn_YwUQGCvjgeXWCEIWtJdVNdgQUrMRzcgLw53yVcfhRb3obQMPLaO0H9ia-u-XGKbqntiSWefMcVgWf7vJDxusBJgy5cvaPLZxMiy-1C3uFwVCMJlN-e3aZhQLyP24WEtY9Jd9kIH8hNyg672zLuTabD0mx3lhXH7vQDs_WLCWf7LY0RH0a452iSKfSaZWI-5syLF6RXFxdvLwEYGxFuYMQYuLbuuGJPj_M7IYU_QbXaSy9IyqjiukgYNMdLy1sTkPQMeF2e23BHfUvsh3ECWIQyCPSYq9Ju4gYoW6DR57omASYk4w0b5sVDH6xao_v5a6Er_pYehbYmRa2w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"listeBoissons\": [\r\n    \"api/boissons/1\",\r\n    \"api/boissons/1\"\r\n  ],\r\n  \"tableNumber\": 1,\r\n  \"serveur\": \"api/users/2\",\r\n  \"barman\": \"api/users/3\",\r\n  \"status\": \"prête\"\r\n}"
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/commandes",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"commandes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mise à jour d'une catégorie Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExMzcyMzAsImV4cCI6MTcyMTE0MDgzMCwicm9sZXMiOlsiUk9MRV9TRVJWRVVSIl0sInVzZXJuYW1lIjoibnlhbmR5In0.ceOyTzAP5FQuukpdIWY17UMeDTEJZOGb8X8jKJz1Q-4u1QEU2P0FJlmy0X5gOQbr3UxktoDqoD4Zw6GgJ497xeOMZK0ecMe7QDpGysMU4J_I4_rXPHY-OuBvELdQLcAnmmMWoZKI_39u4fezcAebp2T0zbIFnnLuz2bNnLTeZpfNwWidvlTrrE_RmW3zQlqPuP-efR3h5YHP0EKGyphjRvNVbVVVY3OjHFcuZdKUdNY9Kr1Z2XXsEwUBS24SN7OCZBZ-IivwnXP8g3Lxdtbi_Y0j80wN3u82NpHb3XCDHSvJEJViHIm_tZyJx0BedxlsiMCDF821dHu_C3L_yW7aGg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/merge-patch+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"listeBoissons\": [\r\n    \"api/boissons/1\",\r\n    \"api/boissons/1\",\r\n    \"api/boissons/1\"\r\n  ],\r\n  \"tableNumber\": 1,\r\n  \"serveur\": \"api/users/2\",\r\n  \"barman\": \"api/users/3\",\r\n  \"status\": \"payée\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/commandes/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"commandes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mise à jour d'un user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjExNDA1MzEsImV4cCI6MTcyMTE0NDEzMSwicm9sZXMiOlsiUk9MRV9QQVRST04iXSwidXNlcm5hbWUiOiJ0aGVhIn0.QEW7TKkZCtXq2N766aFsQ9eK4Pje5JOR6n36uTva9c3MjsiXYVsF3afq_G9Iu-lmjZ3M6Dmxt7eOFFZo4zR2hoYqUZ1F5pMq2svLs0KOUbC-Jc5xzYbPhsIcIXoMmh5YJYtECBVSQt80HTzi9lNs0oG4sXyCvyAGx_KcYmMwI7OVxX0Gd4MKKsiaLFhkIpwY1xyd_Mh1MI96DUdu5PnynCjYZPkmUDsE9eDz2NzFP4gBgWbw_mdQqaShO69o4WzZyOAA42yR2HyEMbPCtzCF0fdKRK37kpGwu2xEqO1bHncR--tZPfJxBvcf39U0fzZl-YNw1I_AN-7bfgn1r4nSmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/merge-patch+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\": \"clement\",\r\n    \"plainPassword\": \"1\",\r\n    \"role\": \"ROLE_BARMAN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "https://127.0.0.1:8000/api"
+		}
+	]
+}
