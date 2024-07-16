@@ -19,7 +19,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Serializer\Attribute\Groups;
 
-
 #[ORM\Entity(repositoryClass: MediaRepository::class)]
 #[Vich\Uploadable]
 #[ApiResource(
@@ -51,10 +50,9 @@ use Symfony\Component\Serializer\Attribute\Groups;
                     ])
                 )
             )
-        ),
+        )
     ]
 )]
-
 class Media
 {
     #[ORM\Id]
@@ -63,53 +61,46 @@ class Media
     #[Groups('read')]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    #[Vich\UploadableField(mapping: 'media_object', fileNameProperty: 'filePath')]
-    #[Assert\NotNull(groups: ['write'])]
-    private ?string $file = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['read', 'write'])]
+    private ?string $filePath = null;
 
-    #[ORM\OneToOne(mappedBy: 'photo', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Boisson $boisson = null;
 
     #[ApiProperty(types: ['https://schema.org/contentUrl'])]
     #[Groups(['read'])]
     public ?string $contentUrl = null;
+ 
+    #[Vich\UploadableField(mapping: 'media_object', fileNameProperty: 'filePath')]
+    #[Assert\NotNull(groups: ['write'])]
+    public ?File $file = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getFile(): ?string
+    public function getFilePath(): ?string
     {
-        return $this->file;
+        return $this->filePath;
     }
 
-    public function setFile(string $file): static
+    public function setFilePath(?string $filePath): static
     {
-        $this->file = $file;
+        $this->filePath = $filePath;
 
         return $this;
     }
 
-    public function getBoisson(): ?Boisson
+    public function getProduct(): ?Product
     {
-        return $this->boisson;
+        return $this->product;
     }
 
-    public function setBoisson(?Boisson $boisson): static
+    public function setProduct(?Product $product): static
     {
-        // unset the owning side of the relation if necessary
-        if ($boisson === null && $this->boisson !== null) {
-            $this->boisson->setPhoto(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($boisson !== null && $boisson->getPhoto() !== $this) {
-            $boisson->setPhoto($this);
-        }
-
-        $this->boisson = $boisson;
+        $this->product = $product;
 
         return $this;
     }
