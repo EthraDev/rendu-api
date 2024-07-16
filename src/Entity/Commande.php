@@ -7,20 +7,25 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
+use Symfony\Component\Serializer\Attribute\Groups;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 
+#[ORM\Entity(repositoryClass: CommandeRepository::class)]
 #[ApiResource(
-    // operations: [
-    //     new GetCollection(),
-    //     new Get(),
-    //     new Post()
-    // ]
+    operations: [
+        new GetCollection(security: "is_granted('ROLE_PATRON') or is_granted('ROLE_BARMAN')"),
+        new Get(security: "is_granted('ROLE_SERVEUR') or is_granted('ROLE_PATRON') or is_granted('ROLE_BARMAN')"),
+        new Post(security: "is_granted('ROLE_SERVEUR') or is_granted('ROLE_BARMAN') or is_granted('ROLE_PATRON')"),
+        new Patch(security: "is_granted('ROLE_SERVEUR') and object.getStatus() != 'payée'"),
+        new Delete(security: "is_granted('ROLE_ADMIN')"),
+    ],
     normalizationContext: ['groups' => ['read']],
     denormalizationContext: ['groups' => ['write']],
     forceEager: false,
@@ -30,41 +35,51 @@ use ApiPlatform\Metadata\GetCollection;
 #[Patch()]
 #[Delete()]
 #[Post()]
-// #[Patch(security: "is_granted('ROLE_ADMIN')")]
-// #[Delete(security: "is_granted('ROLE_ADMIN')")]
-// #[Post(security: "is_granted('ROLE_ADMIN')")]
-#[ORM\Entity(repositoryClass: CommandeRepository::class)]
+
+#[ApiFilter(SearchFilter::class, properties
+    : ['status' => 'exact']
+)]
 class Commande
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['read'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups(['read'])]
     private ?\DateTimeInterface $createdDate = null;
 
     /**
      * @var Collection<int, Boisson>
      */
     #[ORM\ManyToMany(targetEntity: Boisson::class, inversedBy: 'commandes')]
-    private Collection $listesBoissons;
+    #[Groups(['read', 'write'])]
+    private Collection $listeBoissons;
 
     #[ORM\Column]
+    #[Groups(['read', 'write'])]
     private ?int $tableNumber = null;
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]
+    #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['read', 'write'])]
     private ?User $serveur = null;
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]
+    #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['read', 'write'])]
     private ?User $barman = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 255)]
+    #[Groups(['read', 'write'])]
     private ?string $status = null;
 
     public function __construct()
     {
-        $this->listesBoissons = new ArrayCollection();
+        $this->listeBoissons = new ArrayCollection();
+        $this->createdDate = new \DateTime();
     }
 
     public function getId(): ?int
@@ -87,23 +102,23 @@ class Commande
     /**
      * @return Collection<int, Boisson>
      */
-    public function getListesBoissons(): Collection
+    public function getListeBoissons(): Collection
     {
-        return $this->listesBoissons;
+        return $this->listeBoissons;
     }
 
-    public function addListesBoisson(Boisson $listesBoisson): static
+    public function addListeBoisson(Boisson $listeBoisson): static
     {
-        if (!$this->listesBoissons->contains($listesBoisson)) {
-            $this->listesBoissons->add($listesBoisson);
+        if (!$this->listeBoissons->contains($listeBoisson)) {
+            $this->listeBoissons->add($listeBoisson);
         }
 
         return $this;
     }
 
-    public function removeListesBoisson(Boisson $listesBoisson): static
+    public function removeListeBoisson(Boisson $listeBoisson): static
     {
-        $this->listesBoissons->removeElement($listesBoisson);
+        $this->listeBoissons->removeElement($listeBoisson);
 
         return $this;
     }

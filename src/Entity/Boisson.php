@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BoissonRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
@@ -10,14 +12,9 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Get;
 use Symfony\Component\Serializer\Attribute\Groups;
 use ApiPlatform\Metadata\ApiFilter;
-
-use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Delete;
-use ApiPlatform\Metadata\ApiResource;
-use ApiPlatform\Metadata\GetCollection;
-use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ApiResource(
     // operations: [
@@ -49,7 +46,6 @@ class Boisson
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups('read')]
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
@@ -67,8 +63,7 @@ class Boisson
     /**
      * @var Collection<int, Commande>
      */
-    #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'listesBoissons')]
-    #[Groups(['read', 'write'])]
+    #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'listeBoissons')]
     private Collection $commandes;
 
     public function __construct()
@@ -116,4 +111,36 @@ class Boisson
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    public function addCommande(Commande $commande): static
+    {
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes->add($commande);
+            $commande->addListeBoisson($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): static
+    {
+        if ($this->commandes->removeElement($commande)) {
+            $commande->removeListeBoisson($this);
+        }
+
+        return $this;
+    }
+
 }
