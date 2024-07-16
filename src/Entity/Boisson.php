@@ -11,13 +11,13 @@ use ApiPlatform\Metadata\Get;
 use Symfony\Component\Serializer\Attribute\Groups;
 use ApiPlatform\Metadata\ApiFilter;
 
-use ApiPlatform\Metadata\Get;
+
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Delete;
-use ApiPlatform\Metadata\ApiResource;
-use ApiPlatform\Metadata\GetCollection;
-use Symfony\Component\Serializer\Attribute\Groups;
+
+
+
 
 #[ApiResource(
     // operations: [
@@ -49,7 +49,6 @@ class Boisson
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups('read')]
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
