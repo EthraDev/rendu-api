@@ -3964,8 +3964,6 @@
             "time": "2024-06-28T13:13:31+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "symfony/mime",
             "version": "v7.1.2",
             "source": {
@@ -4050,7 +4048,6 @@
             "time": "2024-06-28T10:03:55+00:00"
         },
         {
->>>>>>> 8e1ee367230db8abe9c54966227775f04759942e
             "name": "symfony/password-hasher",
             "version": "v7.1.1",
             "source": {
@@ -6361,8 +6358,6 @@
             "time": "2024-05-16T10:04:27+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "vich/uploader-bundle",
             "version": "2.4.0",
             "source": {
@@ -6472,7 +6467,6 @@
             "time": "2024-06-23T13:48:04+00:00"
         },
         {
->>>>>>> 8e1ee367230db8abe9c54966227775f04759942e
             "name": "webmozart/assert",
             "version": "1.11.0",
             "source": {
