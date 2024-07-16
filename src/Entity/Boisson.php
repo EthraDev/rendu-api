@@ -31,12 +31,9 @@ use ApiPlatform\Metadata\Delete;
 )]
 #[Get()]
 #[GetCollection()]
-#[Patch()]
-#[Delete()]
-#[Post()]
-// #[Patch(security: "is_granted('ROLE_ADMIN')")]
-// #[Delete(security: "is_granted('ROLE_ADMIN')")]
-// #[Post(security: "is_granted('ROLE_ADMIN')")]
+#[Patch(security: "is_granted('ROLE_PATRON') or is_granted('ROLE_BARMAN')")]
+#[Delete(security: "is_granted('ROLE_PATRON') or is_granted('ROLE_BARMAN')")]
+#[Post(security: "is_granted('ROLE_PATRON') or is_granted('ROLE_BARMAN')")]
 #[ORM\Entity(repositoryClass: BoissonRepository::class)]
 #[ApiResource(
     normalizationContext: ['groups' => ['read']],
